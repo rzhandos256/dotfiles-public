@@ -29,8 +29,5 @@ alias tls="tmux ls"
 alias tconf="vi ~/.tmux.conf"
 alias tupd="tmux source-file ~/.tmux.conf"
 
-# alacritty
-alias aconf="vi ~/.config/alacritty/alacritty.toml"
-
 # env
 alias envv="vi ~/.env.zsh"

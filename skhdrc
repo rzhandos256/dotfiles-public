@@ -1,0 +1,23 @@
+alt - f : open -a finder
+alt - s : open -a safari
+alt - c : open -a calculator
+alt - n : open -a notes
+alt - 0 : open -a settings
+alt - 1 : open -a /Applications/Visual\ Studio\ Code.app
+alt - a : open -a terminal
+alt - d : open -a /Applications/Docker.app
+alt - y : open -a safari https://translate.google.kz
+alt - b : open -a /Applications/Brave\ Browser.app
+alt - o : open -a /Applications/OBS.app
+alt - q : open /Applications/DB\ Browser\ for\ SQLite.app
+alt - z : open -a /Applications/FileZilla.app
+alt - m : open -a /Applications/MAMP/MAMP.app
+alt - t : open -a /Applications/Telegram.app
+alt - k : open -a /Applications/KeePassXC.app
+alt - l : open -a /System/Applications/Launchpad.app
+alt - i : open -a /System/Applications/iPhone\ Mirroring.app
+alt + shift - s: open -a /Applications/Sublime\ Text.app
+alt + shift - t : open ~/.Trash
+alt + shift - d : open -a /Applications/Davinci\ Resolve.app
+alt + shift - i : open -a /Applications/iTerm.app
+alt + shift - m : open -a /Applications/Min.app

@@ -31,3 +31,6 @@ alias tupd="tmux source-file ~/.tmux.conf"
 
 # env
 alias envv="vi ~/.env.zsh"
+
+# git
+alias gs="git status"

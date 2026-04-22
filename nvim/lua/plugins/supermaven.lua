@@ -9,7 +9,7 @@ return {
 			},
 			ignore_filetypes = { cpp = true },
 			color = {
-				suggestion_color = "#93a1a1", -- Серый цвет приятнее для глаз, чем чисто белый
+				suggestion_color = "#FFB8B8", -- Серый цвет приятнее для глаз, чем чисто белый
 				cterm = 244,
 			},
 			log_level = "off", -- Для 10x продуктивности логи не нужны, лишний I/O

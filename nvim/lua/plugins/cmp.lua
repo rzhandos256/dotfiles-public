@@ -36,14 +36,27 @@ return {
 			},
 			-- Интеграция иконок lspkind
 			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					maxwidth = 50,
-					ellipsis_char = "...",
-					before = function(entry, vim_item)
-						return vim_item
-					end,
-				}),
+				fields = { "kind", "abbr", "menu" }, -- Порядок: Иконка, Название, Источник
+				format = function(entry, vim_item)
+					-- 1. Генерируем иконку (без текста типа 'Snippet')
+					local kind = require("lspkind").cmp_format({
+						mode = "symbol", -- ТОЛЬКО иконка
+						maxwidth = 50,
+						ellipsis_char = "...",
+					})(entry, vim_item)
+
+					-- 2. Добавляем твои сокращения в правую колонку
+					local menu_icon = {
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snip]",
+						buffer = "[Buf]",
+						path = "[Path]",
+					}
+
+					kind.menu = menu_icon[entry.source.name]
+
+					return kind
+				end,
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),

@@ -1,8 +1,6 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 local map = vim.keymap.set
 
+map("n", "<Space>", ":noh<CR>", { silent = true })
 map("i", "jk", "<Esc>", { silent = true })
 map("n", ";", ":", { silent = true })
 map("n", "Y", "%y", { silent = true })

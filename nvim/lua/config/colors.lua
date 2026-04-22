@@ -22,21 +22,24 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = clean_sidebar,
 })
 
--- Функция для сброса фона номеров строк
 local function fix_colors()
-	-- Убираем фон у номеров строк
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "#93a1a1", bg = "NONE" })
-	-- Убираем фон у текущего номера строки
+	-- БЫЛО: #93a1a1 (светло-серый)
+	-- СТАЛО: #657b83 (глубокий серый, base00) — это сделает цифры четче
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "#657b83", bg = "NONE" })
+
+	-- Текущий номер строки (активный)
+	-- Сделаем его Base01 (#586e75), чтобы он выделялся на фоне остальных
 	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#586e75", bg = "NONE", bold = true })
-	-- Убираем фон у колонки знаков (где гит и ошибки)
+
+	-- Остальные фиксы оставляем
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-	-- Делаем плавающие окна (как Lspsaga) тоже без тяжелого фона, если нужно
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
 end
 
--- Запускаем сразу и при каждой смене темы
+-- Не забудь, что эта функция должна вызываться ПОСЛЕ colorscheme
 fix_colors()
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = fix_colors,
 })

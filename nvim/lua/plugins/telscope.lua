@@ -23,9 +23,6 @@ return {
 				file_ignore_patterns = {
 					"%.git/",
 					"node_modules/",
-					"%.venv/",
-					"venv/",
-					"env/",
 					"__pycache__/",
 					"%.DS_Store",
 					"Library/", -- Игнорим macOS Library

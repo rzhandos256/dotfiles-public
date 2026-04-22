@@ -4,7 +4,7 @@ return {
 		{ "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } }, -- optional: you can also use fzf-lua, snacks, mini-pick instead.
 	},
 	ft = "python", -- Load when opening Python files
-	keys = { { ",e", "<cmd>VenvSelect<cr>" } }, -- Open picker on keymap
+	keys = { { ",v", "<cmd>VenvSelect<cr>" } }, -- Open picker on keymap
 	opts = {
 		options = {}, -- plugin-wide options
 		search = {}, -- custom search definitions

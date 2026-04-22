@@ -1,6 +1,6 @@
 alias cls="clear"
 alias quit="exit"
-alias cat="bat"
+alias cat="bat --theme base16"
 alias o="open"
 alias c="pbcopy"
 alias hh="tldr"
@@ -24,13 +24,16 @@ alias skconf="vi ~/.config/skhd/skhdrc"
 # tmux
 alias tt="tmux new -s "
 alias ta="tmux attach -t "
-alias tks="tmux kill-server"
 alias tls="tmux ls"
 alias tconf="vi ~/.tmux.conf"
 alias tupd="tmux source-file ~/.tmux.conf"
+alias tks="rm ~/.local/share/tmux/resurrect/last && tmux kill-server"
 
 # env
 alias envv="vi ~/.env.zsh"
 
 # git
 alias gs="git status"
+
+# termi
+alias aconf="vi ~/.config/alacritty/alacritty.toml"

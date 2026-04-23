@@ -9,31 +9,37 @@ alias ac="source ~/files/ac.sh"
 alias ca="deactivate"
 
 # zsh
-alias zconf="vi ~/.zshrc"
+alias zconf="nvim ~/.zshrc"
 alias zupd="source ~/.zshrc"
 
-# vi
-alias vconf="vi ~/.vimrc"
+# nvim
+alias vconf="nvim ~/.vimrc"
 
-# vi
-alias aliass="vi ~/.aliass.zsh"
+# nvim
+alias aliass="nvim ~/.aliass.zsh"
 
 # skhd
-alias skconf="vi ~/.config/skhd/skhdrc"
+alias skconf="nvim ~/.config/skhd/skhdrc"
 
 # tmux
 alias tt="tmux new -s "
 alias ta="tmux attach -t "
 alias tls="tmux ls"
-alias tconf="vi ~/.tmux.conf"
+alias tconf="nvim ~/.tmux.conf"
 alias tupd="tmux source-file ~/.tmux.conf"
-alias tks="rm ~/.local/share/tmux/resurrect/last && tmux kill-server"
+alias tks="tmux kill-server"
 
 # env
-alias envv="vi ~/.env.zsh"
+alias envv="nvim ~/.env.zsh"
 
 # git
 alias gs="git status"
 
 # termi
-alias aconf="vi ~/.config/alacritty/alacritty.toml"
+alias aconf="nvim ~/.config/alacritty/alacritty.toml"
+
+alias jmeter="java -jar /Users/rzhandos/Downloads/apache-jmeter-5.6.3/bin/ApacheJmeter.jar"
+
+# nvim
+alias v="nvim"
+alias nconf="nvim ~/.config/nvim/"

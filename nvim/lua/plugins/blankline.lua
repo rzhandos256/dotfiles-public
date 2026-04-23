@@ -1,24 +1,19 @@
 return {
-	-- 1. Основа: Рисуем статические линии отступов
+	-- 1. Основа: Статические линии
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			local hooks = require("ibl.hooks")
-
-			-- Цвет для обычных линий (Base2 — очень тусклый)
+			-- Используем максимально тусклый цвет (Base3 или Base2)
 			vim.api.nvim_set_hl(0, "IblIndent", { fg = "#eee8d5" })
 
 			require("ibl").setup({
 				indent = {
-					char = "╎", -- Пунктирная линия
+					char = "╎",
 					highlight = "IblIndent",
 				},
-				scope = {
-					-- Выключаем scope в IBL, так как за него теперь отвечает mini.indentscope
-					enabled = false,
-				},
+				scope = { enabled = false },
 				exclude = {
 					filetypes = { "help", "neo-tree", "lazy", "mason", "notify" },
 				},
@@ -26,27 +21,28 @@ return {
 		end,
 	},
 
-	-- 2. Стероиды: Мгновенная линия активного блока (БЕЗ анимации)
+	-- 2. Активный блок: Делаем его "мягче"
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
-			symbol = "┃", -- Жирная сплошная линия
+			-- СТАЛО: Используем обычную тонкую линию вместо жирной ┃
+			symbol = "│",
 			options = {
 				try_as_border = true,
 			},
 			draw = {
-				-- Полностью убираем задержки для 100wpm
 				delay = 0,
 				animation = function(s, n)
-					return 0 -- 0 означает мгновенную отрисовку всего блока
+					return 0
 				end,
 			},
 		},
 		config = function(_, opts)
-			-- Синий акцент для активного блока (Base16 Blue)
-			vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#268bd2", bold = true })
+			-- СТАЛО: Вместо яркого синего используем мягкий серый (Base01 #93a1a1)
+			-- Убрали bold: true, чтобы линия не выпирала
+			vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#93a1a1" })
 			require("mini.indentscope").setup(opts)
 		end,
 	},

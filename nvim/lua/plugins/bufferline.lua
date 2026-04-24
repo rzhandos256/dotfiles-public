@@ -1,57 +1,60 @@
--- return {
--- 	"akinsho/bufferline.nvim",
--- 	version = "*",
--- 	dependencies = "nvim-tree/nvim-web-devicons",
--- 	config = function()
--- 		require("bufferline").setup({
--- 			options = {
--- 				mode = "tabs", -- Оставляем режим табов Neovim
--- 				style_preset = {
--- 					require("bufferline").style_preset.minimal,
--- 					require("bufferline").style_preset.no_italic, -- Уберем курсив для чистоты
--- 				},
--- 				separator_style = "none", -- Убираем разделители, будем играть только на цвете фона
--- 				show_buffer_icons = false, -- Выключаем иконки файлов для минимализма
--- 				show_buffer_close_icons = false,
--- 				show_close_icon = false,
--- 				show_tab_indicators = false,
--- 				tab_size = 18,
--- 				always_show_bufferline = true,
---
--- 				-- Цвета под Solarized Light
--- 				highlights = {
--- 					fill = { bg = "#eee8d5" }, -- Фон всей полосы (Base2)
---
--- 					-- Неактивные табы
--- 					tab = {
--- 						fg = "#93a1a1",
--- 						bg = "#eee8d5",
--- 					},
---
--- 					-- Активный таб (Сливается с фоном редактора #fdf6e3)
--- 					tab_selected = {
--- 						fg = "#586e75",
--- 						bg = "#fdf6e3",
--- 						bold = true,
--- 					},
---
--- 					-- Полоска-индикатор (сделаем её в цвет фона, чтобы не мешала)
--- 					indicator_selected = {
--- 						fg = "#fdf6e3",
--- 						bg = "#fdf6e3",
--- 					},
--- 				},
--- 			},
--- 		})
---
--- 		local map = vim.keymap.set
--- 		-- В режиме tabs используем стандартные команды gt / gT, но вешаем их на Tab
--- 		map("n", "<Tab>", "gt", { desc = "Next Tab" })
--- 		map("n", "<S-Tab>", "gT", { desc = "Prev Tab" })
---
--- 		-- Быстрое закрытие таба
--- 		map("n", "<leader>x", "<cmd>tabclose<cr>", { desc = "Close Tab" })
--- 		-- Создание нового таба
--- 		map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "New Tab" })
--- 	end,
--- }
+return {
+	"akinsho/bufferline.nvim",
+	version = "*",
+	dependencies = "nvim-tree/nvim-web-devicons",
+	config = function()
+		vim.opt.termguicolors = true
+		vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+		require("bufferline").setup({
+			options = {
+				mode = "tabs",
+				always_show_bufferline = true,
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+				color_icons = false, -- выключаем цветные иконки для минимализма
+				-- 'thin' или просто отсутствие стиля уберет косые линии (slant)
+				separator_style = { "", "" },
+				indicator = { style = "none" },
+				padding = 1,
+			},
+			highlights = {
+				fill = {
+					bg = "#fdf6e3",
+				},
+				-- Неактивные вкладки (тусклые)
+				background = {
+					fg = "#93a1a1", -- Solarized Base1
+					bg = "#fdf6e3",
+				},
+				buffer_visible = {
+					fg = "#93a1a1",
+					bg = "#fdf6e3",
+				},
+				-- Активная вкладка (темная и четкая)
+				buffer_selected = {
+					fg = "#2d434a", -- Solarized Base01 (глубокий темный)
+					bg = "#fdf6e3",
+					bold = true,
+					italic = false,
+				},
+				-- Настройки для вкладок (Tabs mode)
+				tab = {
+					fg = "#93a1a1",
+					bg = "#fdf6e3",
+				},
+				tab_selected = {
+					fg = "#2d434a",
+					bg = "#fdf6e3",
+					bold = true,
+				},
+				-- Убираем лишние детали
+				separator = { fg = "#fdf6e3", bg = "#fdf6e3" },
+				separator_selected = { fg = "#fdf6e3", bg = "#fdf6e3" },
+				indicator_selected = { fg = "#fdf6e3", bg = "#fdf6e3" },
+				modified = { fg = "#93a1a1", bg = "#fdf6e3" },
+				modified_selected = { fg = "#2d434a", bg = "#fdf6e3" },
+			},
+		})
+	end,
+}

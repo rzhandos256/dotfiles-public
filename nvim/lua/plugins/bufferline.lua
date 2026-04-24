@@ -15,45 +15,57 @@ return {
 				color_icons = false, -- выключаем цветные иконки для минимализма
 				-- 'thin' или просто отсутствие стиля уберет косые линии (slant)
 				separator_style = { "", "" },
-				indicator = { style = "none" },
+				indicator = {
+					icon = "❯",
+					style = "icon",
+				},
 				padding = 1,
 			},
 			highlights = {
 				fill = {
 					bg = "#fdf6e3",
 				},
-				-- Неактивные вкладки (тусклые)
+				-- Неактивные вкладки (сделал чуть ярче, чтобы были читаемы)
 				background = {
-					fg = "#93a1a1", -- Solarized Base1
+					fg = "#839496", -- Solarized Base0
 					bg = "#fdf6e3",
 				},
 				buffer_visible = {
-					fg = "#93a1a1",
+					fg = "#839496",
 					bg = "#fdf6e3",
 				},
-				-- Активная вкладка (темная и четкая)
+				-- Активная вкладка (золотистый Solarized Yellow)
 				buffer_selected = {
-					fg = "#2d434a", -- Solarized Base01 (глубокий темный)
+					fg = "#b58900", -- Тот самый золотой
 					bg = "#fdf6e3",
 					bold = true,
 					italic = false,
 				},
 				-- Настройки для вкладок (Tabs mode)
 				tab = {
-					fg = "#93a1a1",
+					fg = "#839496",
 					bg = "#fdf6e3",
 				},
 				tab_selected = {
-					fg = "#2d434a",
+					fg = "#b58900",
 					bg = "#fdf6e3",
 					bold = true,
+					undercurl = true, -- попробуй вместо underline
+					sp = "#b58900", -- цвет волны
 				},
 				-- Убираем лишние детали
 				separator = { fg = "#fdf6e3", bg = "#fdf6e3" },
 				separator_selected = { fg = "#fdf6e3", bg = "#fdf6e3" },
-				indicator_selected = { fg = "#fdf6e3", bg = "#fdf6e3" },
-				modified = { fg = "#93a1a1", bg = "#fdf6e3" },
-				modified_selected = { fg = "#2d434a", bg = "#fdf6e3" },
+
+				-- Если ты используешь подчеркивание, сделаем его тоже золотым
+				indicator_selected = {
+					fg = "#b58900",
+					bg = "#fdf6e3",
+					sp = "#b58900",
+				},
+
+				modified = { fg = "#839496", bg = "#fdf6e3" },
+				modified_selected = { fg = "#b58900", bg = "#fdf6e3" },
 			},
 		})
 	end,

@@ -5,7 +5,10 @@ filetype plugin indent on
 " === ИНТЕРФЕЙС И ВИЗУАЛ ===
 syntax on
 set background=dark
-colorscheme habamax
+set termguicolors      " Включаем 24-битный цвет для Alacritty
+
+" Пробуем habamax, если нет - дефолт
+silent! colorscheme habamax
 
 set number          " Номера строк
 set scrolloff=8     " Держим курсор ближе к центру при скролле
@@ -30,7 +33,6 @@ set smartindent
 " === ПОВЕДЕНИЕ И ФАЙЛЫ ===
 set noswapfile      " Без лишних .swp файлов
 set nobackup        " Без бэкапов
-set undofile        " СОХРАНЯТЬ историю отмены после закрытия файла!
 set clipboard=unnamed,unnamedplus " Буфер обмена с macOS (требует neovim/pbcopy)
 set hidden          " Переключать буферы без сохранения
 set updatetime=300  " Быстрее отклик (важно для LSP)

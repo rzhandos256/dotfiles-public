@@ -31,8 +31,12 @@ return {
 				end,
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = {
+					border = "rounded",
+				},
+				documentation = {
+					border = "rounded",
+				},
 			},
 			-- Интеграция иконок lspkind
 			formatting = {
@@ -101,9 +105,9 @@ return {
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
-				{ name = "path" },
+				{ name = "path" }, -- подсказка путей
 			}, {
-				{ name = "cmdline" },
+				{ name = "cmdline" }, -- подсказка самих команд nvim
 			}),
 		})
 	end,

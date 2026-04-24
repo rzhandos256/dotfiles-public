@@ -32,6 +32,7 @@ return {
 				},
 			},
 			rename = {
+				in_select = false,
 				keys = {
 					quit = "q",
 				},
@@ -47,6 +48,18 @@ return {
 			},
 			symbol_in_winbar = { enable = true },
 			lightbulb = { enable = false },
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "sagarename",
+			callback = function()
+				-- Ждем 5мс, чтобы буфер успел инициализироваться, и прыгаем в конец
+				vim.defer_fn(function()
+					vim.cmd("normal! $")
+					-- Если хотите сразу режим вставки, то:
+					vim.cmd("startinsert!")
+				end, 5)
+			end,
 		})
 
 		local map = vim.keymap.set

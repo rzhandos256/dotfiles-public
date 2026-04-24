@@ -1,6 +1,6 @@
 alias cls="clear"
 alias quit="exit"
-alias cat="bat --theme base16"
+alias cat="bat --theme Coldark-Cold"
 alias o="open"
 alias c="pbcopy"
 alias hh="tldr"
@@ -34,6 +34,8 @@ alias envv="nvim ~/.env.zsh"
 
 # git
 alias gs="git status"
+alias gl="git log"
+alias gd="git diff"
 
 # termi
 alias aconf="nvim ~/.config/alacritty/alacritty.toml"

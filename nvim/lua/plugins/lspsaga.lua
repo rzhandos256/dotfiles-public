@@ -18,7 +18,14 @@ return {
 			-- Принудительно ставим q на закрытие во всех типах окон
 			finder = {
 				keys = {
-					quit = "q",
+					jump_to = "p", -- Preview the symbol without closing finder
+					edit = { "o", "<CR>" }, -- Open in current buffer
+					vsplit = "v", -- Open in vertical split
+					split = "s", -- Open in horizontal split
+					tabe = "t", -- Open in new tab
+					quit = "q", -- Your existing quit key
+					scroll_down = "<C-f>", -- Scroll preview window
+					scroll_up = "<C-b>", -- Scroll preview window
 				},
 			},
 			definition = {

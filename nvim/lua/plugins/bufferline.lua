@@ -12,14 +12,13 @@ return {
 				always_show_bufferline = true,
 				show_buffer_close_icons = false,
 				show_close_icon = false,
-				color_icons = false, -- выключаем цветные иконки для минимализма
-				-- 'thin' или просто отсутствие стиля уберет косые линии (slant)
+				color_icons = false,
 				separator_style = { "", "" },
 				indicator = {
 					icon = "❯",
 					style = "icon",
 				},
-				padding = 1,
+				-- padding = 1,
 			},
 			highlights = {
 				fill = {

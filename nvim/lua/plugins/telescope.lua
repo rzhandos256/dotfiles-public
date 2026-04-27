@@ -9,43 +9,29 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local builtin = require("telescope.builtin")
+		local map = vim.keymap.set
 
 		telescope.setup({
-			extensions = {
-				file_browser = {
-					theme = "ivy",
-					-- disables netrw and use telescope-file-browser in its place
-					hijack_netrw = true,
-					mappings = {
-						["i"] = {
-							-- your custom insert mode mappings
-						},
-						["n"] = {
-							-- your custom normal mode mappings
-						},
-					},
-				},
-			},
 			defaults = {
 				path_display = { "smart" },
 				sorting_strategy = "ascending",
+				layout_strategy = "horizontal",
 				layout_config = {
 					horizontal = {
-						prompt_position = "bottom",
-						preview_width = 0.55,
+						prompt_position = "top", -- Поиск сверху, как в Raycast/VS Code
+						preview_width = 0.5,
 					},
 				},
-				-- ИГНОРИРОВАНИЕ МУСОРА
+				-- ИГНОРИРОВАНИЕ МУСОРА (убрал лишнее для Python проекта)
 				file_ignore_patterns = {
 					"%.git/",
 					"node_modules/",
 					"__pycache__/",
 					"%.DS_Store",
-					"Library/", -- Игнорим macOS Library
-					"%.app/", -- Игнорим пакеты приложений macOS
-				},
-				preview = {
-					treesitter = false,
+					"%.venv/",
+					"venv/",
+					"%.idea/",
 				},
 				mappings = {
 					i = {
@@ -55,28 +41,44 @@ return {
 						["<esc>"] = actions.close,
 					},
 				},
+				-- Тонкие рамки для Solarized Light
 				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 			},
 			pickers = {
 				find_files = {
 					hidden = true,
-					-- Дополнительно: не искать внутри .git, даже если hidden = true
 					no_ignore = false,
+				},
+				live_grep = {
+					additional_args = function()
+						return { "--hidden" }
+					end,
+				},
+			},
+			extensions = {
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
+				file_browser = {
+					theme = "ivy",
+					hijack_netrw = true,
 				},
 			},
 		})
 
+		-- Загрузка расширений
 		telescope.load_extension("fzf")
 		telescope.load_extension("file_browser")
 
-		local builtin = require("telescope.builtin")
-		local map = vim.keymap.set
-
-		map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-		map("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
-		map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
-		map("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
-		map("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Document Symbols" })
-		map("n", "<leader>fw", builtin.grep_string, { desc = "Find Word" })
+		-- ГОРЯЧИЕ КЛАВИШИ
+		map("n", "<leader>ff", builtin.find_files, { desc = "Поиск файлов (Cmd+P)" })
+		map("n", "<leader>fg", builtin.live_grep, { desc = "Поиск текста по проекту (Grep)" })
+		map("n", "<leader>fw", builtin.grep_string, { desc = "Поиск слова под курсором" })
+		map("n", "<leader>fb", builtin.buffers, { desc = "Открытые буферы" })
+		map("n", "<leader>fh", builtin.help_tags, { desc = "Справка" })
+		map("n", "<leader>fr", builtin.oldfiles, { desc = "Недавние файлы" })
 	end,
 }

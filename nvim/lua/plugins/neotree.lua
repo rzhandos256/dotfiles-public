@@ -6,20 +6,35 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-	-- Убираем cmd = "Neotree", чтобы плагин мог загрузиться при открытии папки
 	init = function()
 		-- Выключаем стандартный netrw
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
+		-- ФИКС ТЕКСТА В ИНПУТЕ (для Solarized Light)
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "neo-tree-popup",
+			callback = function()
+				vim.api.nvim_set_hl(0, "NuiInputNormal", { fg = "#586e75", bg = "#eee8d5" })
+			end,
+		})
+
 		-- Биндим <leader>e на toggle в режиме float
 		vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle float<CR>", { silent = true })
 	end,
 	opts = {
+		close_if_last_window = true,
 		window = {
-			position = "float", -- Основной режим — плавающий
-			width = 40,
+			position = "float",
+			width = 60, -- Увеличил ширину, чтобы влезли длинные имена файлов
 			popup_strategy = "FP",
+			popup = {
+				border = {
+					style = "rounded", -- Скругленные углы для эстетики
+					text_pos = "left",
+				},
+				position = "50%",
+			},
 			mapping_options = {
 				noremap = true,
 				nowait = true,
@@ -27,11 +42,10 @@ return {
 			mappings = {
 				["<space>"] = "none",
 				["e"] = "close_window",
-				["q"] = "close_window", -- Добавил q для консистентности с Сагой
+				["q"] = "close_window",
 			},
 		},
 		filesystem = {
-			-- Это заставляет Neo-tree открываться вместо пустой страницы
 			hijack_netrw_behavior = "open_default",
 			filtered_items = {
 				visible = true,
@@ -43,12 +57,40 @@ return {
 			},
 			use_libuv_file_watcher = true,
 		},
-		-- Добавим немного эстетики для Solarized Light
 		default_component_configs = {
+			container = {
+				enable_character_fade = true,
+			},
 			indent = {
-				with_expanders = true, -- добавляет стрелочки
+				indent_size = 2,
+				padding = 1, -- Добавляет воздух слева от иконок
+				with_expanders = true,
 				expander_collapsed = "",
 				expander_expanded = "",
+			},
+			icon = {
+				folder_closed = "",
+				folder_open = "",
+				folder_empty = "󰜌",
+				default = " ",
+			},
+			name = {
+				trailing_slash = false,
+				use_git_status_colors = true,
+				highlight = "NeoTreeFileName",
+			},
+			git_status = {
+				symbols = {
+					added = "✚",
+					modified = "",
+					deleted = "✖",
+					renamed = "󰁯",
+					untracked = "",
+					ignored = "",
+					unstaged = "󰄱",
+					staged = "",
+					conflict = "",
+				},
 			},
 		},
 	},

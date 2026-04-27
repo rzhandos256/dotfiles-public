@@ -12,7 +12,7 @@ return {
 	},
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		local servers = { "lua_ls", "pyright", "bashls", "dockerls" }
+		local servers = { "ts_ls", "lua_ls", "pyright", "bashls", "dockerls" }
 
 		-- Настройка через новый API Neovim 0.11
 		for _, server in ipairs(servers) do

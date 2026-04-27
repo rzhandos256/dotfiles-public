@@ -46,8 +46,8 @@ bindings = [
   { key = "J", mods = "Command|Shift", chars = "\u0001" },
   { key = "K", mods = "Command|Shift", chars = "\u0005" },
 
-  # Удалить одно слово (Cmd + Delete)
-  { key = "Back", mods = "Command", chars = "\u001b\u007f" },
+  # Удалить одно слово (Cmd + Delete) — ТЕПЕРЬ БУДЕТ РАБОТАТЬ ВЕЗДЕ
+  { key = "Back", mods = "Command", chars = "\u0017" },
 
   # Удалить всю строку (Cmd + Shift + Delete)
   { key = "Back", mods = "Command|Shift", chars = "\u0015" },

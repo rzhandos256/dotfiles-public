@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 
+map("i", "<D-BS>", "<C-w>", { noremap = true })
 map("n", "<Space>", ":noh<CR>", { silent = true })
 map("i", "jk", "<Esc>", { silent = true })
 map("n", ";", ":", { silent = true })

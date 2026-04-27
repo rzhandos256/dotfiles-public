@@ -19,7 +19,7 @@ return {
 				layout_strategy = "horizontal",
 				layout_config = {
 					horizontal = {
-						prompt_position = "top", -- Поиск сверху, как в Raycast/VS Code
+						prompt_position = "bottom", -- Поиск сверху, как в Raycast/VS Code
 						preview_width = 0.5,
 					},
 				},

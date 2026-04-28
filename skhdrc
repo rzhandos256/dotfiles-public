@@ -4,7 +4,8 @@ alt - c : open -a calculator
 alt - n : open -a notes
 alt - 0 : open -a settings
 alt - 1 : open -a /Applications/Visual\ Studio\ Code.app
-alt - a : open -a terminal
+alt - 2 : open -a terminal
+alt - a : open -a /Applications/Alacritty.app
 alt - d : open -a /Applications/Docker.app
 alt - y : open -a safari https://translate.google.kz
 alt - b : open -a /Applications/Brave\ Browser.app

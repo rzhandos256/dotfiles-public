@@ -23,30 +23,30 @@ return {
 					vsplit = "v", -- Open in vertical split
 					split = "s", -- Open in horizontal split
 					tabe = "t", -- Open in new tab
-					quit = "q", -- Your existing quit key
+					quit = "<Esc>", -- Your existing quit key
 					scroll_down = "<C-f>", -- Scroll preview window
 					scroll_up = "<C-b>", -- Scroll preview window
 				},
 			},
 			definition = {
 				keys = {
-					quit = "q",
+					quit = "<Esc>",
 				},
 			},
 			diagnostic = {
 				keys = {
-					quit = "q",
+					quit = "<Esc>",
 				},
 			},
 			rename = {
 				in_select = false,
 				keys = {
-					quit = "q",
+					quit = "<Esc>",
 				},
 			},
 			outline = {
 				keys = {
-					quit = "q",
+					quit = "<Esc>",
 				},
 			},
 			hover = {

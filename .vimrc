@@ -5,7 +5,6 @@ filetype plugin indent on
 " === ИНТЕРФЕЙС И ВИЗУАЛ ===
 syntax on
 set background=dark
-set termguicolors      " Включаем 24-битный цвет для Alacritty
 
 " Пробуем habamax, если нет - дефолт
 silent! colorscheme habamax

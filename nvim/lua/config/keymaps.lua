@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+-- Выделить весь текст в файле
+map("n", "<leader>a", "ggVG", { noremap = true, silent = true, desc = "Select all" })
 map("i", "<D-BS>", "<C-w>", { noremap = true })
 map("n", "<Space>", ":noh<CR>", { silent = true })
 map("i", "jk", "<Esc>", { silent = true })

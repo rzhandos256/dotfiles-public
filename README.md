@@ -13,11 +13,43 @@
 - opencode
 
 ## Apps
+- Safari
+- Brave Browser
+- Cursor Pro
+- PyCharm
+- VS Code
+- Sublime Text
+- Figma
+- iTerm
+- Alacritty
+- Min
+- Blender
+- DaVinci Resolve
+- OBS
+- CapCut
+- LibreOffice
+- FileZilla
+- Docker
+- Telegram
+- KeePassXC
 - Maccy
-- Lunar
-- The Unarchiver
+- Raycast
+- Rectangle
+- AltTab
+- Ice
+- Stats
+- Karabiner-Elements
+- KeyCastr
+- CleanShot X
+- Pearcleaner
+- Handy
+- SmoothCSV
 - DB Browser for SQLite
-- iTerm2
+- MAMP / MAMP PRO
+- The Unarchiver
+- NCALayer
+- Vpnify
+- uBlock Origin Lite
 
 ## Neovim
 - **Languages**: Python, JS/TS, Lua, Bash, Docker

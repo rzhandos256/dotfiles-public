@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("supermaven-nvim").setup({
 			keymaps = {
-				accept_suggestion = "<C-CR>", -- Меняем на C-f (Forward), чтобы не конфликтовать с Tab в nvim-cmp
+				accept_suggestion = "<S-CR>", -- Меняем на C-f (Forward), чтобы не конфликтовать с Tab в nvim-cmp
 				clear_suggestion = "<C-]>",
 				accept_word = "<C-j>",
 			},

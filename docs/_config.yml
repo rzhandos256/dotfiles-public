@@ -1,0 +1,9 @@
+theme: jekyll-theme-minimal
+title: rzhandos256's dotfiles
+description: Personal macOS development environment and dotfiles configuration
+show_downloads: false
+logo: null
+
+# SEO and social media
+url: https://rzhandos256.github.io/dotfiles-public
+repository: rzhandos256/dotfiles-public

@@ -3,11 +3,24 @@ return {
 	config = function()
 		require("supermaven-nvim").setup({
 			keymaps = {
-				accept_suggestion = "<S-CR>", -- Меняем на C-f (Forward), чтобы не конфликтовать с Tab в nvim-cmp
+				accept_suggestion = "<S-l>", -- Меняем на C-f (Forward), чтобы не конфликтовать с Tab в nvim-cmp
 				clear_suggestion = "<C-]>",
 				accept_word = "<C-j>",
 			},
-			ignore_filetypes = { cpp = true },
+			ignore_filetypes = {
+				cpp = true,
+				-- Текстовые и тяжелые форматы
+				log = true,
+				txt = true,
+				csv = true,
+				markdown = true, -- если не нужна помощь в текстах
+				-- Файлы сборки и зависимостей
+				json = true, -- пакетные менеджеры часто генерят гигантские json
+				sql = true, -- дампы баз данных могут "съесть" все ресурсы
+				-- Специфические расширения
+				env = true, -- переменные окружения (безопасность)
+				xml = true,
+			},
 			color = {
 				suggestion_color = "#93A1A1", -- Серый цвет приятнее для глаз, чем чисто белый
 				cterm = 244,

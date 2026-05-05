@@ -8,6 +8,24 @@
             "complex_modifications": {
                 "rules": [
                     {
+                      "description": "F5 to Option + Space (Dictation trigger for Handy)",
+                      "manipulators": [
+                        {
+                          "from": {
+                            "key_code": "f5",
+                            "modifiers": { "optional": ["any"] }
+                          },
+                          "to": [
+                            {
+                              "key_code": "spacebar",
+                              "modifiers": ["left_option"]
+                            }
+                          ],
+                          "type": "basic"
+                        }
+                      ]
+                    },
+                    {
                         "description": "Restore keyboard func to M1 Macs by overwriting dictation key, F5 to go up, hold F5 to go down",
                         "manipulators": [
                             {
